@@ -12,7 +12,10 @@
         var startView = new App.views.Start();
         startView.render();
     },
-    exercise: function () {
+    exercise: function (exnum, qnum) {
+        App.session.set("currentExercise", parseInt(exnum, 10));
+        App.session.set("currentQuestion", parseInt(qnum, 10));
+        
         this.progressMapView.render();
         this.questionView.model = App.session.getCurrentQuestion();
         this.questionView.render();
