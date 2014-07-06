@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <div id="main">
+    </div>
+    
+    <div id="progress-map-container">
+    </div>
+    <script id="progress-map-container-template" type="text/template">
+<div class='nav-btns'>
+  <a class="js-prev nav-btn prev">  </a> <a class="nav-btn js-next next"></a>
+</div>
+<ul>
+<%
+    var i = 0;                         
+    _.each(items,function(item,key,list){                            
+    i++;
+%>
+<li class='exercise <%- (currentExercise == i ? "active" : "")  %>'>
+   <span class='number'><%- i %></span>
+   <ul>
+   <%      
+      var j = 0;                         
+      _.each(item.questions,function(item,key,list){                            
+          j++;
+    %>
+        <li class='question <%- (currentQuestion == j ? "active" : "") %>'>
+          <span class='number'><%- j %></span>
+        </li>
+     <%
+       });
+      %>
+  </ul>
+</li>
+<%});%>
+</ul>
+</script>
+
+<script id="start-view-template" type="text/template">    
+     <a href="#exercises/ex1/q1" class="run-test">Run test</a>
+</script>
+
+    <script id="question-template" type="text/template">
+<div id='question-block'>
+        <h1>Exercise <%- session.get('currentExercise') %> Vocabulary</h1>
+<h2><%- model.get('title')%></h2>
+<ul>
+<%        
+    var i = 0;                         
+    _.each(model.get('answers'),function(item, key, list){                            
+        i++;
+        var showResultMode = model.get('showResultMode');
+%>
+        <li>
+           <%  if (item.get('labelType') == 'image'){%>
+             <div>      
+                <img src='<%- item.get('imageSrc') %>'/>        
+             </div>
+            <% } else if (item.get('labelType') == 'text'){%>
+                 <label><%- item.get('label') %> </label>            
+           <% }%>
+           
+           <% if (model.get('showNumber')) {%>
+                 <span><%- i %></span>
+           <% }%>
+          
+           <input type='text' value='<%- showResultMode ? item.get('answer') : item.get('userAnswer')%>' class='js-answer' <%- (showResultMode ? 'disabled' : '')%>  />
+           <%  if (showResultMode){%>
+             <span class='is-correct <%- item.isCorrectAnswer() %>'></span>    
+           <% }%>
+        </li>
+<%});%>
+</ul>
+
+<% if (model.get('showResultMode')){ %>
+        <span class='js-check check-btn return'></span>
+<%} else {%>        
+        <span class='js-check check-btn check'></span>
+        <%};%>
+        
+<img class='q-img' src='<%- model.get("imageSrc") %>'/>
+</div>
+
+</script>
+    <script>
+        App = {
+            views: {},
+            models: {},
+            collections: {}
+        };
+    </script>
+
+    <script src="scripts/libs/jquery-2.1.1.min.js"></script>
+    <script src="scripts/libs/underscore.js"></script>
+    <script src="scripts/libs/backbone.js"></script>
+    
+    <script src="scripts/Views/ProgressMapView.js"></script>
+    <script src="scripts/Views/QuestionView.js"></script>
+    <script src="scripts/Views/StartView.js"></script>
+    
+    <script src="scripts/Models/QuestionModel.js"></script>
+    
+    <script src="scripts/Models/ExerciseModel.js"></script>
+    <script src="scripts/Models/Session.js"></script>
+    <script src="scripts/Router.js"></script>
+    
+    <script src="scripts/DataUploader.js"></script>
+
+    <script src="scripts/App.js"></script>
+    
+    <link href="css/index.css" rel="stylesheet" />
+</body>
+</html>

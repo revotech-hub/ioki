@@ -1,0 +1,128 @@
+﻿body {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#main {
+    padding-top: 40px;
+}
+
+#main .run-test{
+    background: black;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#question-block li {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+#question-block span.check-btn {
+    background-repeat: no-repeat;
+    width: 36px;
+    height: 36px;
+    display: block;
+    cursor: pointer;
+    opacity: 0.7;
+    float: right;
+}
+#question-block span.check-btn:hover {
+    opacity: 1;
+}
+#question-block span.check-btn.check {
+    background-image: url('images/check.png');
+}
+#question-block span.check-btn.return {
+    background-image: url('images/return.png');
+}
+#question-block span.is-correct {
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: block;
+    cursor: pointer;
+    float: right;
+}
+#question-block span.is-correct.true {
+    background-image: url('images/success.png');
+}
+#question-block span.is-correct.false {
+    background-image: url('images/incorrect.png');
+}
+#question-block .q-img {
+    float: left;
+}
+
+
+
+
+/* ====== progress map ======*/
+#progress-map-container {
+    clear: both;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+#progress-map-container .nav-btns {
+        float: left;
+    }
+
+#progress-map-container li {
+    float: left;
+    color: #2F9EC8;
+    list-style: none;
+    margin-right: 10px;
+}
+#progress-map-container li.exercise span.number {
+    font-size: 15px;
+    border-radius: 15px;
+    border: 3px solid #2F9EC8;
+    padding: 5px;
+}
+
+#progress-map-container li.exercise.active span.number{
+    border-color: #4554AB;
+}
+
+#progress-map-container li.exercise ul{
+    list-style: none;
+    font-size: 8px;
+    margin-top: 10px;
+}
+
+#progress-map-container li.exercise li.question span.number{
+    font-size: 8px;
+}
+
+#progress-map-container li.exercise.active li.question.active span.number{
+    background-color: #4554AB;
+    color: #4554AB;
+    border-radius: 15px;
+}
+
+
+
+
+#progress-map-container a.nav-btn {
+    width: 36px;
+    height: 36px;
+    display: block;
+    content: " ";
+    float: left;
+    margin-right: 10px;
+    opacity: 0.7;
+}
+    #progress-map-container a.nav-btn:hover {
+        opacity: 1;
+    }
+
+#progress-map-container a.nav-btn.next{
+    background-image: url('images/next.png');
+}
+#progress-map-container a.nav-btn.prev{
+    background-image: url('images/prev.png');
+}

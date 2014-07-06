@@ -1,0 +1,18 @@
+What we can improve (we have no time for implementing test task, sorry)
+
+- plug-in RequireJS
+- organize every constructor like a module 
+- destroy using of global vars (like App.session) and inject neccessary vars in modules
+- extract each template in a separate file
+- reorganize base infrastructure logic (App, Router), but we need to know real requirements
+- fix markup html and css
+
+
+
+
+
+ 
+
+
+
+
