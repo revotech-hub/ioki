@@ -1,11 +1,12 @@
 Possible further improvements:
 
 - use RequireJS for modules management
-- organize every constructor like a module 
 - instead of using global vars (like App.session) inject neccessary vars into modules
 - move each template to a separate file
-- reorganize base infrastructure logic (App, Router), but we need to know real requirements
-- fix markup html and css
+
+Known issues:
+- small html and css layout issues
+- dragging image with answer options to answer textboxes provides wrong result, as the image should be splitted into several images
 
 
 
